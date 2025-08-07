@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  height: 100vh;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* BOTH sides */
+.left, .right {
+  flex: 1;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+/* LEFT panel */
+.left {
+  background-color: #000;
+  color: white;
+  padding: 1rem;
+  position: relative; 
+}
+
+/* REVIEW box inside left */
+.review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  
+}
+
+/* RIGHT panel */
+.right {
+  background-color: antiquewhite;
+}

@@ -3,6 +3,7 @@ import aiRoutes from "./routes/aiRoute.js";
 
 
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => res.send("Root working"));
 app.use("/ai", aiRoutes);

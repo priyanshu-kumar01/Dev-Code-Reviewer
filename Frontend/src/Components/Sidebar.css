@@ -1,0 +1,45 @@
+.sidebar {
+  width: 260px;
+  transition: width 0.3s ease;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  width: 60px;  /* small width to keep the toggle visible */
+  padding: 1rem 0.5rem;
+}
+
+/* Hide sidebar content when collapsed */
+.sidebar.collapsed .sidebar-content {
+  display: none;
+}
+
+/* Toggle button stays visible */
+.sidebar-toggle {
+  background-color: #b7410e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Adjust toggle button when collapsed (optional) */
+.sidebar.collapsed .sidebar-toggle {
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+}

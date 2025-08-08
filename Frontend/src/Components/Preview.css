@@ -2,7 +2,7 @@
   display: flex;
   height: 100vh;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem; /* outer gap from viewport */
 }
 
 /* BOTH sides */
@@ -12,27 +12,109 @@
   overflow: hidden;
 }
 
-/* LEFT panel */
-.left {
-  background-color: #000;
-  color: white;
-  padding: 1rem;
-  position: relative; 
+.sidebar {
+  flex-shrink: 0;
 }
 
-/* REVIEW box inside left */
-.review {
+/* LEFT panel */
+.left {
+  position: relative;
+  background-color: transparent; /* let Prism bg show */
+  color: white;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0; /* remove the gap around Prism */
+}
+
+/* Button group */
+
+.button-group {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  background-color: white;
-  color: black;
+
+  display: flex;
+  gap: 0.5rem; /* space between buttons */
+}
+
+.clear {
+  background: rgb(57, 12, 12);
+  color: rgb(251, 244, 244);
+  font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear:hover {
+  background: rgb(180, 140, 140);
+}
+
+.review {
+  background: rgb(133, 95, 80);
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.review:hover:not(:disabled) {
+  background: linear-gradient(90deg, #b7410e, #000000);
+}
+
+.review:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* Code fills whole left panel */
+.code {
+  flex: 1;
+  overflow: auto;
+}
+
+/* Let Prism pre fill everything */
+.code pre {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 1rem; /* Prism’s inner spacing */
+  overflow: auto;
+  border-radius: 1rem; /* remove rounded edge inside */
 }
 
 /* RIGHT panel */
 .right {
-  background-color: antiquewhite;
+  background-color: #755c5c;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
